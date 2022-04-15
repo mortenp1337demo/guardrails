@@ -10,13 +10,13 @@ on:
     branches:
     - '**'
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  Windows-Latest:
+    runs-on: windows-latest
     steps:
       - name: 'checkout repo'
         uses: actions/checkout@main
 
-      - name: 'checkout repo'
+      - name: 'login to azure'
         uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
