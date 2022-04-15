@@ -1,11 +1,11 @@
 @secure()
 param ghpat string // github pat
-
+param location string
 var username = 'mortenp1337'
 
 resource githublogicapp 'Microsoft.Logic/workflows@2019-05-01' = {
   name: 'githublogicapp-prod'
-  location: 'westeurope'
+  location: location
   properties: {
     parameters: {
 
