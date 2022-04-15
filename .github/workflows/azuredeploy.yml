@@ -28,9 +28,8 @@ jobs:
           inlineScript: |
             Get-AzResourceGroup
           azPSVersion: "latest"
-#    - name: azureDeploy
-#      uses: azure/arm-deploy@v1
-#      with:
-#        subscriptionId: ${{ secrets.AZURE_DEVSUBID }}
-#        resourceGroupName: ${{ ghlogicapp }}
-#        template: ./.bicep/main.bicep
+      - name: DeployLogicApp
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: githublogicapp-prod
+          template: ./.bicep/main.bicep
