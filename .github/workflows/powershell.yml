@@ -38,6 +38,8 @@ jobs:
           # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
           path: .\
           recurse: true 
+          severity: '"Error", "Warning"'
+          enableExit: true
           # Include your own basic security rules. Removing this option will run all the rules 
           # includeRule: '"PSAvoidGlobalAliases", "PSAvoidUsingConvertToSecureStringWithPlainText"'
           output: results.sarif
