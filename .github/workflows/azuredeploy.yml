@@ -1,0 +1,34 @@
+# This workflow deploys the infrastructure/logic app to the Azure Subscription. The workflow will trigger on changes to the .bicep folder
+
+name: azureDeploy
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'checkout repo'
+        uses: actions/checkout@main
+
+      - name: 'checkout repo'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: 'Get RG with powershell action TEST'
+        uses: azure/powershell@v1
+        with:
+          inlineScript: |
+            Get-AzResourceGroup
+          azPSVersion: "latest"
+#    - name: azureDeploy
+#      uses: azure/arm-deploy@v1
+#      with:
+#        subscriptionId: ${{ secrets.AZURE_DEVSUBID }}
+#        resourceGroupName: ${{ ghlogicapp }}
+#        template: ./.bicep/main.bicep
