@@ -19,7 +19,7 @@ jobs:
       - name: 'login to azure'
         uses: azure/login@v1
         with:
-          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          credentials: ${{ secrets.AZURE_CRED }}
           enable-AzPSSession: true
 
       - name: 'Get RG with powershell action TEST'
