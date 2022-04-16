@@ -49,9 +49,9 @@ Value: *json object*
 
 ```json
 {
-    "clientId": "cff90683-d40e-4719-a596-ae297c3a9f91",
-    "clientSecret": "10f7c30a-37fc-465d-88b0-83cf028bc3b9",
-    "subscriptionId": "67ed30f7-c635-4fe0-a589-ee84b5460732",
-    "tenantId": "8d14f92c-b068-4875-be21-aebb16a55799"
+    "clientId": "{Azure AD Application ID}",
+    "clientSecret": "{Azure AD Application Secret}",
+    "subscriptionId": "{Azure Subscription ID}",
+    "tenantId": "{Azure AD Tenant ID}"
 }
 ```
