@@ -1,0 +1,25 @@
+# This workflow deploys the infrastructure/logic app to the Azure Subscription. The workflow will trigger on changes to the .bicep folder
+
+name: azureDeploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  Deploy-Guardrails:
+    runs-on: windows-latest
+    steps:
+      - name: 'checkout repo'
+        uses: actions/checkout@main
+
+      - name: 'login to azure'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CRED }}
+          enable-AzPSSession: true
+      - name: DeployLogicApp
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: githublogicapp-prod
+          template: ./.bicep/main.bicep
