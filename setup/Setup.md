@@ -28,14 +28,30 @@ Ensure that the webhook is setup up from the organisation settings, and not dire
 
 URL to the settings page on GitHub: https://github.com/organizations/{YOURORGNAME}/settings/hooks
 
-| Name         | Value                                                        |
-|--------------|--------------------------------------------------------------|
-| Payload URL  | https://prod-xx.westeurope.logic.azure.com:443/workflows/xxx |
-| Content type | application/json                                             |
-| Secret       | *blank*                                                      |
-| SSL          | Enable SSL Verification                                      |
-| Which events | Repositories                                                 |
+| Name         | Value                                                                                                                            |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Payload URL  | <https://prod-xx.westeurope.logic.azure.com:443/workflows/xxx> (this URL can be obtained from the Logic app in the Azure Portal) |
+| Content type | application/json                                                                                                                 |
+| Secret       | *blank*                                                                                                                          |
+| SSL          | Enable SSL Verification                                                                                                          |
+| Which events | Repositories                                                                                                                     |
 
 When the Webhook is configured initially it will post a payload to the URL specified. The payload will not cause the Logic App in Azure to perform any changes because it checks for "Created" actions, but now is a good time to verify that the payload was delivered to Azure. This can both be viewed directly from the webhook under "Recent Deliveries" or on the Logic App in the Azure Portal on the overview page.
 
 Create a new test repository to verify that the webhook is working, and performs the expected actions.
+
+### Repository secrets
+
+A secret is required for GitHub actions to deploy the Logic App to Azure:
+
+Name: AZURE_CRED
+Value: *json object*
+
+```json
+{
+    "clientId": "cff90683-d40e-4719-a596-ae297c3a9f91",
+    "clientSecret": "10f7c30a-37fc-465d-88b0-83cf028bc3b9",
+    "subscriptionId": "67ed30f7-c635-4fe0-a589-ee84b5460732",
+    "tenantId": "8d14f92c-b068-4875-be21-aebb16a55799"
+}
+```
