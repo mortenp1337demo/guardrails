@@ -2,7 +2,7 @@
 
 ## Configure Azure Infrastructure
 
-A powershell script is provided [here](AzureInitialSetup.ps1)
+When setting up this solution for the first time, we created a powershell script is provided [here](AzureInitialSetup.ps1) to make it a bit easier.
 
 Change the variables in the script to match your environment.
 
