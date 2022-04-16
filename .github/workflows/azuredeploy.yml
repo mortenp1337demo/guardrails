@@ -21,13 +21,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CRED }}
           enable-AzPSSession: true
-
-      - name: 'Get RG with powershell action TEST'
-        uses: azure/powershell@v1
-        with:
-          inlineScript: |
-            Get-AzResourceGroup
-          azPSVersion: "latest"
       - name: DeployLogicApp
         uses: azure/arm-deploy@v1
         with:
