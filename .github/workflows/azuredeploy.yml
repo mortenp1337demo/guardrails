@@ -6,9 +6,6 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-  pull_request:
-    branches:
-    - '**'
 jobs:
   Windows-Latest:
     runs-on: windows-latest
