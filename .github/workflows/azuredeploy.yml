@@ -7,7 +7,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-  Windows-Latest:
+  Deploy-Guardrails:
     runs-on: windows-latest
     steps:
       - name: 'checkout repo'
