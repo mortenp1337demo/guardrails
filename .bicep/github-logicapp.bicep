@@ -8,13 +8,19 @@ resource githublogicapp 'Microsoft.Logic/workflows@2019-05-01' = {
   location: location
   properties: {
     parameters: {
-
+        basicAuthPasswordParam: {
+          value: ghpat
+      }
     }
     state: 'Enabled'
     definition: {
       '$schema': 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#'
       contentVersion: '1.0.0.0'
-      parameters: {}
+      parameters: {
+        basicAuthPasswordParam: {
+          type: 'securestring'
+        }
+      }
       staticResults: {
         HTTP0: {
           status: 'Succeeded'
@@ -430,7 +436,7 @@ resource githublogicapp 'Microsoft.Logic/workflows@2019-05-01' = {
               type: 'Http'
               inputs: {
                 authentication: {
-                  password: ghpat
+                  password: '@parameters(\'basicAuthPasswordParam\')'
                   type: 'Basic'
                   username: username
                 }
@@ -450,7 +456,7 @@ resource githublogicapp 'Microsoft.Logic/workflows@2019-05-01' = {
               type: 'Http'
               inputs: {
                 authentication: {
-                  password: ghpat
+                  password: '@parameters(\'basicAuthPasswordParam\')'
                   type: 'Basic'
                   username: username
                 }
@@ -481,7 +487,7 @@ resource githublogicapp 'Microsoft.Logic/workflows@2019-05-01' = {
               type: 'Http'
               inputs: {
                 authentication: {
-                  password: ghpat
+                  password: '@parameters(\'basicAuthPasswordParam\')'
                   type: 'Basic'
                   username: username
                 }
