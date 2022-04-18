@@ -4,7 +4,7 @@
 
 When setting up this solution for the first time, we created a powershell script is provided [here](AzureInitialSetup.ps1) to make it a bit easier.
 
-Change the variables in the script to match your environment.
+Change the variables in the script to match your environment. The script will ask for your [Personal Access Token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), have this ready.
 
 Examples:
 
@@ -18,6 +18,8 @@ $dateTime = Get-Date -Format 'yyyyMMddHHmmss' # Get the current date and time
 $deploymentName = 'initialSetup' + $dateTime # Deployment Name with unique timestamp
 $servicePrincipalDisplayName = 'sp-githublogicapp-prod' # Service Principal Display Name
 ```
+
+Before running the script, make sure to verify parameters are correct in the [main.bicep file](../.bicep/main.bicep)
 
 ## Create webhooks in GitHub
 
