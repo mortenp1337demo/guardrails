@@ -1,6 +1,6 @@
 # Guardrails
 
-The purpose of this solution is to implement simple Guardrails to ensure security compliance across the entire GitHub Organization. Whenever a repository is created, a Webhook is triggered that which a [Logic App](https://docs.microsoft.com/en-us/azure/logic-apps/) deployed in Azure.
+The purpose of this solution is to implement simple Guardrails to ensure security compliance across the entire GitHub Organization. Whenever a repository is created, a Webhook triggers a [Logic App](https://docs.microsoft.com/en-us/azure/logic-apps/) deployed in Azure.
 
 The Logic App sets up the following through the GitHub REST API:
 
