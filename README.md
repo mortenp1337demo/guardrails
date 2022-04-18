@@ -51,7 +51,7 @@ Details on the branch protection settings can be found [here](https://docs.githu
 
 Bicep files for deploying the infrastructure to Azure is store in the [.bicep folder](./.bicep)
 
-GitHub Actions and workflows are in the [.github folder/workflows](./.github/workflows)
+GitHub Actions and workflows are in the [.github/workflows folder](./.github/workflows)
 
 When setting this solution up for the first time, instructions are in the [Setup.md file](./setup/Setup.md)
 
